@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.webp" type="image/x-icon" />
+    <title>Spectrum</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="loadingScreen">
+      <h1>Spectrum</h1>
+    </div>
+
+    <header>
+      <h1>Spectrum</h1>
+      <div class="login-button">
+        <button id="loginButton">Iniciar sesión con Google</button>
+        <button id="logoutButton" style="display: none">Cerrar sesión</button>
+        <div
+          id="welcomeMessage"
+          style="display: none; font-size: 1.2em; margin-top: 10px"
+        ></div>
+      </div>
+    </header>
+
+    <main>
+      <div class="favotitos">
+        <button id="showFavoritesButton">Mostrar solo favoritos</button>
+      </div>
+      <section id="wallpapers">
+        <div class="wallpapers-container" id="wallpapersContainer"></div>
+      </section>
+    </main>
+
+    <!-- Modal structure -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <button id="prevButton" class="nav-button">&#8249;</button>
+      <img id="modalImage" class="modal-content" />
+      <button id="nextButton" class="nav-button">&#8250;</button>
+    </div>
+
+    <footer>
+      <p>
+        &copy; Web hecha por
+        <a href="https://www.instagram.com/astralbyte.studio/" target="_blank"
+          >AstralByte Studios</a
+        >
+      </p>
+    </footer>
+    <script type="module" src="/scripts/app.js"></script>
+  </body>
+</html>
