@@ -1,0 +1,582 @@
+/* Estilos generales */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+  color: #fff;
+}
+
+/* Estilo para la pantalla de carga */
+#loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 10000; /* Asegúrate de que esté encima de todos los demás elementos */
+  overflow: hidden;
+  animation: fadeIn 1s ease-out forwards; /* Fade-in para la pantalla */
+}
+
+/* Animación de expansión y desvanecimiento */
+#loadingScreen h1 {
+  display: inline-block;
+  transform: scale(0); /* Inicialmente pequeño */
+  opacity: 1; /* Mantener opacidad en 1 */
+  animation: expandFade 3s ease-out forwards;
+}
+
+/* Animación para expandir y desvanecer el texto */
+@keyframes expandFade {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2); /* Expande ligeramente */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); /* Vuelve a su tamaño original */
+    opacity: 1;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2em 1em;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Estilos generales para el botón */
+#showFavoritesButton {
+  background-color: #4caf50; /* Color verde */
+  color: white; /* Texto blanco */
+  border: none;
+  padding: 10px 20px; /* Espaciado alrededor del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+  margin: 10px 0; /* Espaciado superior e inferior */
+  display: inline-block;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+#showFavoritesButton:hover {
+  background-color: #45a049; /* Color verde oscuro al pasar el ratón */
+  transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+/* Efecto al presionar el botón */
+#showFavoritesButton:active {
+  background-color: #387c39; /* Color verde aún más oscuro al hacer clic */
+  transform: scale(0.98); /* Reducir ligeramente el tamaño */
+}
+
+/* Estilo del botón cuando está desactivado */
+#showFavoritesButton[disabled] {
+  background-color: #d3d3d3; /* Color gris */
+  cursor: not-allowed; /* Cursor no permitido */
+}
+
+/* Estilo adicional para la apariencia del texto */
+#showFavoritesButton {
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Alinear texto al centro */
+}
+
+#loginButton {
+  display: block;
+  background-color: #4285f4; /* Azul de Google */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#loginButton:hover {
+  background-color: #357ae8; /* Más oscuro al pasar el ratón */
+}
+
+#loginButton:active {
+  transform: scale(0.97); /* Efecto de clic */
+}
+
+#loginButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.5); /* Resaltado al enfocar */
+}
+
+#logoutButton {
+  display: none; /* Por defecto está oculto */
+  background-color: #f44336; /* Rojo para cerrar sesión */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#logoutButton:hover {
+  background-color: #d32f2f; /* Más oscuro al pasar el ratón */
+}
+
+#logoutButton:active {
+  transform: scale(0.97); /* Efecto de clic */
+}
+
+#logoutButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.5); /* Resaltado al enfocar */
+}
+
+.login-button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Estilo para el contenedor de bienvenida */
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative; /* Asegura que el menú se posicione relativo a este contenedor */
+  z-index: 9998;
+}
+
+.welcome-container .profile-photo {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.welcome-container span {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Estilo para el botón de cerrar sesión */
+#logoutBtn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#logoutBtn:hover {
+  background-color: #c0392b;
+}
+
+/* Estilos generales para el botón */
+#showFavoritesButton {
+  background-color: #4caf50; /* Color verde */
+  color: white; /* Texto blanco */
+  border: none;
+  padding: 10px 20px; /* Espaciado alrededor del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+  margin: 10px 0; /* Espaciado superior e inferior */
+  display: inline-block;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+#showFavoritesButton:hover {
+  background-color: #45a049; /* Color verde oscuro al pasar el ratón */
+  transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+/* Efecto al presionar el botón */
+#showFavoritesButton:active {
+  background-color: #387c39; /* Color verde aún más oscuro al hacer clic */
+  transform: scale(0.98); /* Reducir ligeramente el tamaño */
+}
+
+/* Estilo del botón cuando está en favoritos */
+.favorite {
+  background-color: #ffeb3b; /* Color amarillo */
+  color: black; /* Texto negro */
+}
+
+/* Estilo del botón cuando está desactivado */
+#showFavoritesButton[disabled] {
+  background-color: #d3d3d3; /* Color gris */
+  cursor: not-allowed; /* Cursor no permitido */
+}
+
+/* Estilo adicional para la apariencia del texto */
+#showFavoritesButton {
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Alinear texto al centro */
+}
+
+main {
+  padding: 2em;
+}
+
+#wallpapers h2 {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 2rem;
+}
+
+.wallpapers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 3em;
+  padding: 0 1em;
+  z-index: 1;
+}
+
+/* Estilo para el botón de descarga */
+.download-btn {
+  background-color: #000000; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin bordes */
+  padding: 10px 20px; /* Espaciado del botón */
+  text-align: center; /* Centrado del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* En línea con otras cosas */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambiar el cursor */
+  margin-top: 10px; /* Espaciado encima */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Transición suave al cambiar color */
+}
+
+.download-btn:hover {
+  background-color: #ffffff; /* Color de fondo al pasar el ratón */
+  color: black;
+}
+
+/* Estilo para el contenedor de los fondos de pantalla, añadiendo espacio para el botón de descarga */
+.wallpaper {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  text-align: center;
+  color: #333;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Asegura que el botón se posicione al final */
+}
+
+.wallpaper:hover {
+  transform: scale(0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.wallpaper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+  justify-content: center; /* Center modal content */
+  align-items: center; /* Center modal content */
+  overflow: hidden;
+}
+
+/* Modal content */
+.modal-content {
+  border: white solid 5px;
+  border-radius: 20px;
+  max-width: 80%; /* Maximum width of the image */
+  max-height: 80%; /* Maximum height of the image */
+  margin: auto; /* Center the image */
+  display: block;
+  object-fit: contain; /* Make sure the image scales correctly */
+}
+
+/* Navigation buttons for modal */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#prevButton {
+  left: 10px;
+}
+
+#nextButton {
+  right: 10px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Botones de navegación */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1101;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+footer {
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+
+  & a {
+    text-decoration: none;
+    color: whitesmoke;
+    transition: color ease-in-out 0.2s;
+  }
+
+  & a:hover {
+    color: wheat;
+  }
+}
+
+/* Estilo general para pantallas pequeñas */
+@media (max-width: 768px) {
+  main {
+    gap: 5px;
+  }
+
+  body {
+    font-size: 14px; /* Reduce el tamaño de fuente para pantallas pequeñas */
+  }
+
+  #loadingScreen h1 {
+    font-size: 2rem; /* Ajusta el tamaño del texto de carga */
+  }
+
+  header h1 {
+    font-size: 1.8rem; /* Reduce el tamaño del encabezado */
+  }
+
+  #loginButton {
+    font-size: 13px;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  .wallpapers-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Reduce el tamaño mínimo de las columnas */
+  }
+
+  .wallpaper {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Ajusta las sombras */
+  }
+
+  .wallpaper img:hover {
+    transform: none;
+  }
+
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem; /* Ajusta el tamaño del botón de navegación */
+  }
+
+  footer {
+    padding: 0.5em;
+    font-size: 0.9rem;
+  }
+}
+
+/* Estilo para pantallas muy pequeñas (teléfonos en modo retrato) */
+@media (max-width: 480px) {
+  main {
+    gap: 5px;
+  }
+
+  #loadingScreen h1 {
+    font-size: 1.8rem; /* Ajusta aún más el tamaño del texto de carga */
+  }
+
+  header h1 {
+    font-size: 1.5rem; /* Reduce el tamaño del encabezado */
+  }
+
+  #loginButton {
+    font-size: 11px;
+  }
+
+  .wallpapers-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(120px, 1fr)
+    ); /* Ajusta el tamaño mínimo de las columnas */
+  }
+
+  .wallpaper {
+    margin: 0.5em; /* Reduce el margen entre los elementos */
+  }
+
+  .wallpaper img:hover {
+    transform: none;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* Estilo general para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 2px; /* Ancho de la barra vertical */
+  height: 2px; /* Altura de la barra horizontal (opcional) */
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Fondo oscuro */
+  border-radius: 9000px; /* Bordes redondeados */
+}
+
+/* Color de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a; /* Color de la barra */
+  border-radius: 9000px; /* Bordes redondeados */
+}
+
+/* Color de la barra al hacer hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6a6a6a; /* Más claro al pasar el cursor */
+}
+
+/* Estilo para Firefox */
+* {
+  scrollbar-width: thin; /* Barra más fina */
+  scrollbar-color: #4a4a4a #1e1e1e; /* Thumb y fondo */
+}
+
+/* Estilo para pantallas medianas (tabletas) */
+@media (max-width: 1024px) {
+  main {
+    gap: 5px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .wallpapers-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(180px, 1fr)
+    ); /* Ajusta el tamaño mínimo de las columnas */
+  }
+
+  .wallpaper img:hover {
+    transform: none;
+  }
+
+  .nav-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem; /* Ajusta el tamaño del botón de navegación */
+  }
+}
+
+/* Estilo para pantallas grandes (escritorios) */
+@media (min-width: 1025px) {
+  .wallpapers-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(250px, 1fr)
+    ); /* Aumenta el tamaño mínimo de las columnas */
+  }
+
+  .wallpaper {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Incrementa la intensidad de las sombras */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza las animaciones */
+  }
+
+  .wallpaper img:hover {
+    transform: none;
+  }
+
+  .wallpaper:hover {
+    transform: scale(1.1); /* Amplía un poco más el efecto de hover */
+  }
+}
