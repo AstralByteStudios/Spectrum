@@ -5,4 +5,4 @@
 <p>Recap es una página web que muestra videos del año 2023 del canal de YouTube de itsramirez4.</p>
  </div>
 
-![628shots_so](https://github.com/AstralByteStudios/Recap2023-itsramirez4/assets/104223738/d77745fd-31ad-43c1-bae9-557d5c4140c4)
+![Captura de pantalla 2025-01-05 002703](https://github.com/user-attachments/assets/762bfcb1-a594-45b3-827b-4812157ca3cd)
