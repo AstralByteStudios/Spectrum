@@ -1,5 +1,5 @@
 <div align="center">
-<img src="/src/astral.png" height="40px"/> 
+<img src="/[src/astral.png](https://raw.githubusercontent.com/AstralByteStudios/Recap-itsramirez4/refs/heads/main/src/astral.png)" height="40px"/> 
 
 <h1>Spectrum</h1>
 <p>Recap es una página web que muestra videos del año 2023 del canal de YouTube de itsramirez4.</p>
